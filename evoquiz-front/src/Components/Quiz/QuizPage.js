@@ -9,25 +9,6 @@ const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
 
-  const handleAnswerClick = (answer) => {
-    const rightAnswer = answer.rightAnswer;
-    // Right answer clicked ?
-    if (rightAnswer) {
-      setScore(score + 1);
-    }
-    // Score state is late by one point so display +1
-    console.log(score + 1);
-
-    // We are at last question ?
-    if (currentQuestion >= 2) {
-      // Display score page
-      history.push("/result/" + id);
-    } else {
-      // Go next question
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
-
   
 
   const [quiz, setQuiz] = useState({
@@ -91,16 +72,41 @@ const QuizPage = () => {
       },
     ],
   });
-  
-  
+
   const [countQuestions, setCountQuestions] = useState(0);
 
   useEffect(() => {
-    const amountQuestion = quiz.questions.length
-    setCountQuestions(amountQuestion)
-    console.log(countQuestions)
+    const amountQuestion = quiz.questions.length;
+    setCountQuestions(amountQuestion);
+    console.log(countQuestions);
   }, []);
 
+  const handleAnswerClick = (answer) => {
+    const rightAnswer = answer.rightAnswer;
+    // Right answer clicked ?
+    if (rightAnswer) {
+      setScore(score + 1);
+    }
+    // Score state is late by one point so display +1
+    console.log(score + 1);
+
+    // We are at last question ?
+    if (currentQuestion >= 2) {
+      // Check if win rate >= 60%
+      if ((score*100/countQuestions)>=60){
+          alert("VICTORY")
+        // Axios send Victory(true) to server to save in DB
+      }else {
+        alert("Loose")
+          // Axios send Victory(false) to server to save in DB
+      }
+      // Display score page
+      history.push("/result/" + id);
+    } else {
+      // Go next question
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  };
 
   return (
     <div className="question_wrapper">
@@ -124,7 +130,9 @@ const QuizPage = () => {
             }
           )}
         </div>
-        <p className="question_num">Question {currentQuestion + 1}/{countQuestions}</p>
+        <p className="question_num">
+          Question {currentQuestion + 1}/{countQuestions}
+        </p>
       </div>
     </div>
   );
