@@ -2,4 +2,50 @@
     background-color: #ffb703;
     height: 60px;
     width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 150px;
+}
+
+#main_logo {
+    width: 150px;
+    filter: drop-shadow(0 0 0.5rem rgba(78, 53, 0, 0));
+    transition: filter 150ms ease-in-out;
+}
+
+#main_logo:hover {
+    filter: drop-shadow(0 0 0.5rem rgba(128, 115, 88, 0.25));
+}
+
+.btn {
+    padding: 6px 20px;
+    font-size: 13px;
+}
+
+#logout_btn:hover {
+    color: #d10000 !important;
+}
+
+
+
+
+
+/* RESPONSIVE */
+
+
+@media (max-width: 1250px) { 
+    .header_Wrapper {
+        padding: 0 70px;
+    }
+}
+@media (max-width: 600px) { 
+    .header_Wrapper {
+        padding: 0 30px;
+    }
+}
+@media (max-width: 400px) { 
+    .header_Wrapper {
+        padding: 0 10px;
+    }
 }
