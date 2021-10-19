@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import QuizCard from "./QuizCard"
 
 const Homepage = () => {
     
@@ -8,6 +9,7 @@ const Homepage = () => {
       quiz: [
         {
           title: "Quiz 1",
+          id: 1,
           questions: [
             {
               content: "Quelle est l'heure actuelle en France ?",
@@ -65,6 +67,7 @@ const Homepage = () => {
 
         {
             title: "Quiz 2",
+            id: 2,
             questions: [
               {
                 content: "Quelle est l'heure actuelle en France ?",
@@ -122,6 +125,7 @@ const Homepage = () => {
 
           {
             title: "Quiz 3",
+            id: 3,
             questions: [
               {
                 content: "Quelle est l'heure actuelle en France ?",
@@ -188,11 +192,9 @@ const Homepage = () => {
       <h1>Homepage</h1>
       {allQuiz.map((allQuiz) => {
         return allQuiz.quiz.map((text) => {
-          console.log("FINAL");
-          console.log(text.title);
           return (
             <div>
-              <p>{text.title}</p>
+                <QuizCard data={text} />
             </div>
           );
         });

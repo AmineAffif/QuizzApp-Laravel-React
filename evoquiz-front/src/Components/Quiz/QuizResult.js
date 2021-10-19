@@ -3,15 +3,15 @@ import {
     useParams
   } from "react-router-dom";
 
-const QuizPage = () => {
+const QuizResult = () => {
 
     let { id } = useParams();
 
     return (
         <div>
-            Quiz play for Quiz {id}
+            Quiz Result for Quiz {id}
         </div>
     );
 };
 
-export default QuizPage;
+export default QuizResult;
