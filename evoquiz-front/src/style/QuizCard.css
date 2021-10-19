@@ -26,9 +26,13 @@
     margin: 0 40px;
 }
 
-#play_btn {
+.play_btn {
     background-color: #81e0f7;
 }
-#play_btn:hover {
+.play_btn:hover {
     background-color: #68c4db;
+}
+
+.results_btn:hover {
+    color: #3ea801 !important;
 }

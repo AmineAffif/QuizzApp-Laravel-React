@@ -10,14 +10,13 @@ const QuizCard = (data) => {
       <h3>{data.data.title}</h3>
       <div className="btn_wrapper">
         <button
-          className="btn btn-link text-dark m-0 btn-block text-decoration-none"
+          className="btn btn-link text-dark m-0 btn-block text-decoration-none results_btn"
           onClick={() => history.push("/result/" + data.data.id)}
         >
           Résultats
         </button>
         <button
-          className="btn rounded-0 btn-block"
-          id="play_btn"
+          className="btn rounded-0 btn-block play_btn"
           onClick={() => history.push("/play/" + data.data.id)}
         >
           Jouer
