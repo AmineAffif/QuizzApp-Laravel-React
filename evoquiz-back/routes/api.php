@@ -6,3 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/', [HomeController::class, "index"]);
+
+
+Route::post('/allQuiz', [HomeController::class, "allQuiz"]);
