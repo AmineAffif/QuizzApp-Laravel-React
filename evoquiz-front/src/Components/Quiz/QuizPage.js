@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import "../../style/QuizPage.css";
+import RequestAPI from "../../Utils/Api";
 
 const QuizPage = () => {
   let { id } = useParams();
@@ -9,120 +10,79 @@ const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
 
-  
+  const [quiz, setQuiz] = useState();
 
-  const [quiz, setQuiz] = useState({
-    title: "Quiz 1",
-    id: 1,
-    questions: [
-      {
-        content: "Quelle est l'heure actuelle en France ?",
-        answers: [
-          {
-            content: "12h30",
-            rightAnswer: true,
-          },
-          {
-            content: "10h24",
-            rightAnswer: false,
-          },
-          {
-            content: "9h14",
-            rightAnswer: false,
-          },
-        ],
-      },
-      {
-        content: "Quelle est l'heure actuelle au Japon ?",
-        answers: [
-          {
-            content: "12h30",
-            rightAnswer: true,
-          },
-          {
-            content: "10h24",
-            rightAnswer: false,
-          },
-          {
-            content: "9h14",
-            rightAnswer: false,
-          },
-          {
-            content: "9h14",
-            rightAnswer: false,
-          },
-        ],
-      },
-      {
-        content: "Quelle est l'heure actuelle en Italie ?",
-        answers: [
-          {
-            content: "12h30",
-            rightAnswer: true,
-          },
-          {
-            content: "10h24",
-            rightAnswer: false,
-          },
-          {
-            content: "9h14",
-            rightAnswer: false,
-          },
-        ],
-      },
-    ],
-  });
+  const [countQuestions, setCountQuestions] = useState(1);
 
-  const [countQuestions, setCountQuestions] = useState(0);
+  const [trigger, setTrigger] = useState(0);
 
   useEffect(() => {
-    const amountQuestion = quiz.questions.length;
-    setCountQuestions(amountQuestion);
-    console.log(countQuestions);
+    RequestAPI("POST", "quiz/" + id, {})
+      .then(function (reponse) {
+        console.log(reponse.data[0]);
+        setQuiz(reponse.data[0]);
+
+        const amountQuestion = reponse.data[0].questions.length;
+        setCountQuestions(amountQuestion);
+      })
+      .catch(function (erreur) {
+        console.log(erreur);
+      });
   }, []);
 
-  const handleAnswerClick = (answer) => {
-    const rightAnswer = answer.rightAnswer;
-    // Right answer clicked ?
-    if (rightAnswer) {
-      setScore(score + 1);
-    }
-    // Score state is late by one point so display +1
-    console.log(score + 1);
-
-    // We are at last question ?
-    if (currentQuestion >= 2) {
-      // Check if win rate >= 60%
-      if ((score*100/countQuestions)>=60){
-          alert("VICTORY")
-        // Axios send Victory(true) to server to save in DB
-      }else {
-        alert("Loose")
-          // Axios send Victory(false) to server to save in DB
-      }
-      // Display score page
-      history.push("/result/" + id);
-    } else {
-      // Go next question
+  useEffect(() => {
+    console.log(score + " = score");
+    // Go next question
+    if (currentQuestion < countQuestions - 1) {
       setCurrentQuestion(currentQuestion + 1);
+    } else {
+      // Check if win rate >= 60%
+      if ((score * 100) / countQuestions >= 60) {
+        alert("VICTORY");
+        // Axios send Victory(true) to server to save in DB
+      } else {
+        if (currentQuestion >= countQuestions) {
+          alert("Loose");
+          // Axios send Victory(false) to server to save in DB
+        }
+      }
+      console.log("fin");
+      if (currentQuestion > countQuestions) {
+        history.replace("/result/" + id, score);
+      }
+    }
+  }, [score, trigger]);
+
+  const handleAnswerClick = (answer) => {
+    const rightAnswer = answer?.right_answer;
+    // Right answer clicked ?
+    if (rightAnswer == 1) {
+      setScore(score + 1);
+    } else {
+        setTrigger(trigger+1)
     }
   };
 
   return (
     <div className="question_wrapper">
-      <h3 className="question_title">{quiz.title}</h3>
+      <h3 className="question_title">{quiz?.title}</h3>
+      score state : {score} <br />
+      current Q : {currentQuestion + 1}
       <div className="question">
         {/* Quiz Question */}
         <p className="question_text">
-          {quiz.questions[currentQuestion ? currentQuestion : 0].content}
+          {quiz?.questions[currentQuestion]?.content}
         </p>
         <div className="answers_wrapper">
-          {quiz.questions[currentQuestion ? currentQuestion : 0].answers.map(
-            (answer) => {
+          {quiz?.questions[currentQuestion ? currentQuestion : 0]?.answers.map(
+            (answer, index) => {
               return (
                 <button
                   className="btn rounded-0 btn-block answer_btn"
-                  onClick={() => handleAnswerClick(answer)}
+                  onClick={function () {
+                    handleAnswerClick(answer);
+                  }}
+                  key={index}
                 >
                   {answer.content}
                 </button>

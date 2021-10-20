@@ -1,204 +1,42 @@
-import React, { useState } from "react";
-import QuizCard from "./QuizCard"
+import React, { useEffect, useState } from "react";
+import QuizCard from "./QuizCard";
+import { useAuth0 } from "@auth0/auth0-react";
+import RequestAPI from "../Utils/Api"
 
 const Homepage = () => {
-    
+  const { loginWithRedirect, logout, user, isLoading } = useAuth0();
+
   // All quiz
-  const [allQuiz, setAllQuiz] = useState([
-    {
-      quiz: [
-        {
-          title: "Quiz 1",
-          id: 1,
-          questions: [
-            {
-              content: "Quelle est l'heure actuelle en France ?",
-              answers: [
-                {
-                  content: "12h30",
-                  rightAnswer: true,
-                },
-                {
-                  content: "10h24",
-                  rightAnswer: false,
-                },
-                {
-                  content: "9h14",
-                  rightAnswer: false,
-                },
-              ],
-            },
-            {
-              content: "Quelle est l'heure actuelle en France ?",
-              answers: [
-                {
-                  content: "12h30",
-                  rightAnswer: true,
-                },
-                {
-                  content: "10h24",
-                  rightAnswer: false,
-                },
-                {
-                  content: "9h14",
-                  rightAnswer: false,
-                },
-              ],
-            },
-            {
-              content: "Quelle est l'heure actuelle en France ?",
-              answers: [
-                {
-                  content: "12h30",
-                  rightAnswer: true,
-                },
-                {
-                  content: "10h24",
-                  rightAnswer: false,
-                },
-                {
-                  content: "9h14",
-                  rightAnswer: false,
-                },
-              ],
-            },
-          ],
-        },
+  const [allQuiz, setAllQuiz] = useState();
 
-        {
-            title: "Quiz 2",
-            id: 2,
-            questions: [
-              {
-                content: "Quelle est l'heure actuelle en France ?",
-                answers: [
-                  {
-                    content: "12h30",
-                    rightAnswer: true,
-                  },
-                  {
-                    content: "10h24",
-                    rightAnswer: false,
-                  },
-                  {
-                    content: "9h14",
-                    rightAnswer: false,
-                  },
-                ],
-              },
-              {
-                content: "Quelle est l'heure actuelle en France ?",
-                answers: [
-                  {
-                    content: "12h30",
-                    rightAnswer: true,
-                  },
-                  {
-                    content: "10h24",
-                    rightAnswer: false,
-                  },
-                  {
-                    content: "9h14",
-                    rightAnswer: false,
-                  },
-                ],
-              },
-              {
-                content: "Quelle est l'heure actuelle en France ?",
-                answers: [
-                  {
-                    content: "12h30",
-                    rightAnswer: true,
-                  },
-                  {
-                    content: "10h24",
-                    rightAnswer: false,
-                  },
-                  {
-                    content: "9h14",
-                    rightAnswer: false,
-                  },
-                ],
-              },
-            ],
-          },
-
-          {
-            title: "Quiz 3",
-            id: 3,
-            questions: [
-              {
-                content: "Quelle est l'heure actuelle en France ?",
-                answers: [
-                  {
-                    content: "12h30",
-                    rightAnswer: true,
-                  },
-                  {
-                    content: "10h24",
-                    rightAnswer: false,
-                  },
-                  {
-                    content: "9h14",
-                    rightAnswer: false,
-                  },
-                ],
-              },
-              {
-                content: "Quelle est l'heure actuelle en France ?",
-                answers: [
-                  {
-                    content: "12h30",
-                    rightAnswer: true,
-                  },
-                  {
-                    content: "10h24",
-                    rightAnswer: false,
-                  },
-                  {
-                    content: "9h14",
-                    rightAnswer: false,
-                  },
-                ],
-              },
-              {
-                content: "Quelle est l'heure actuelle en France ?",
-                answers: [
-                  {
-                    content: "12h30",
-                    rightAnswer: true,
-                  },
-                  {
-                    content: "10h24",
-                    rightAnswer: false,
-                  },
-                  {
-                    content: "9h14",
-                    rightAnswer: false,
-                  },
-                ],
-              },
-            ],
-          },
-
-
-      ],
-    },
-  ]);
-
+  useEffect(() => {
+    RequestAPI("POST", "allQuiz", {})
+      .then(function (reponse) {
+        setAllQuiz(reponse.data);
+      })
+      .catch(function (erreur) {
+        console.log(erreur);
+      });
+  }, []);
 
   return (
     <div>
-      <h1>Homepage</h1>
-      {allQuiz.map((allQuiz) => {
-        return allQuiz.quiz.map((text) => {
-          return (
-            <div>
-                <QuizCard data={text} />
-            </div>
-          );
-        });
-      })}
+      {!isLoading &&
+        user &&
+        allQuiz?.map((quiz, index) => {
+            return (
+              <div>
+                <QuizCard data={quiz} key={index} />
+              </div>
+            );
+          })
+        }
+      {!isLoading && !user && (
+        <div className="go_login">
+          <p>Connecte toi ! ☝️</p>
+          <p>Et découvre 1001 questions</p>
+        </div>
+      )}
     </div>
   );
 };

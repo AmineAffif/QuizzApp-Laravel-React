@@ -12,6 +12,9 @@ const Auth0ProviderWithHistory = ({ children }) => {
     history.push(appState?.returnTo || window.location.pathname);
   };
 
+  
+
+
   return (
     <Auth0Provider
       domain={domain}

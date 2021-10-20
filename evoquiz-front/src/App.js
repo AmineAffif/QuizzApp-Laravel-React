@@ -16,6 +16,9 @@ import QuizPage from './Components/Quiz/QuizPage';
 import QuizResult from './Components/Quiz/QuizResult';
 
 function App() {
+
+  
+
   return (
     <BrowserRouter>
       <Auth0ProviderWithHistory>

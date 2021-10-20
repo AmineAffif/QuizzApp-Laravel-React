@@ -15,7 +15,7 @@ const Header = () => {
         <div className="header_Wrapper">
             {/* Main Logo */}
             <Link to="/">
-                <img src="https://svgshare.com/i/bH8.svg" id="main_logo" alt="EvoQUIZ logo" />
+                <img src="/main_logo.svg" id="main_logo" alt="EvoQUIZ logo" />
             </Link>
 
             {/* Login Logout btn */}
