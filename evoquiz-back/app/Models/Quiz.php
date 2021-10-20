@@ -12,9 +12,9 @@ class Quiz extends Model
     /**
      * Get the questions for the quiz
      */
-    public function question()
+    public function questions()
     {
-        return $this->hasMany(Question::class, "id", "quizId");
+        return $this->hasMany(Question::class, "quiz_id", "id");
     }
 
     /**
@@ -24,6 +24,6 @@ class Quiz extends Model
      */
     protected $fillable = [
         'title',
-        'amountQuestion',
+        'amount_question',
     ];
 }

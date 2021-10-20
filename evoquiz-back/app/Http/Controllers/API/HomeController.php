@@ -11,11 +11,6 @@ use App\Models\Quiz;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
-    {
-        return $request;
-    }
-
     public function allQuiz()
     {
         // Get all quiz basic info

@@ -12,9 +12,13 @@ class Question extends Model
     /**
      * Get the answers for the question
      */
-    public function answer()
+    public function answers()
     {
-        return $this->hasMany(Answer::class, "id", "questionId");
+        return $this->hasMany(Answer::class, "question_id", "id");
+    }
+    public function quiz()
+    {
+        return $this->belongsTo(Quiz::class);
     }
 
     /**
@@ -23,7 +27,7 @@ class Question extends Model
      * @var string[]
      */
     protected $fillable = [
-        'quizId',
+        'quiz_id',
         'content',
     ];
 }

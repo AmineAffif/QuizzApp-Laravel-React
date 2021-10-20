@@ -15,9 +15,14 @@ class Score extends Model
      * @var string[]
      */
     protected $fillable = [
-        'userId',
-        'quizId',
+        'user_id',
+        'quiz_id',
         'score',
         'victory',
     ];
+
+    public function question()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

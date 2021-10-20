@@ -15,8 +15,10 @@ class CreateScoresTable extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->integer("userId");
-            $table->integer("quizId");
+            $table->integer("user_id");
+            $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
+            $table->integer("quiz_id");
+            $table->foreign("quiz_id")->references('id')->on('quizzes')->onDelete('cascade');
             $table->boolean("victory");
             $table->timestamps();
         });

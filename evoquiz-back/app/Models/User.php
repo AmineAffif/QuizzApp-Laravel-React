@@ -15,9 +15,9 @@ class User extends Authenticatable
     /**
      * Get the scores for the user
      */
-    public function score()
+    public function scores()
     {
-        return $this->hasMany(Score::class, "id", "userId");
+        return $this->hasMany(Score::class, "user_id", "id");
     }
 
     /**
