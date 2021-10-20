@@ -10,19 +10,19 @@ class QuizController extends Controller
 {
     public function quiz($id)
     {
-        // Get a quiz
-        $quiz = Quiz::find($id);
+        // Get quiz info
+        // $quiz = Quiz::find($id);
 
-        // Get questions for a quiz
-        // $questions = Question::where("quizId", $id);
+        // Get only the questions for a quiz
+        // $questionsOnly = Quiz::find(1)->questions;
 
+        // Get quiz info + questions
+        // $quizQuestions = Quiz::with('questions')->get();
+        
+        // Get quiz info + questions + questions answers
+        $quizQuestionsAnswers = Quiz::with('questions.answers')->get();
 
-        $questions = Question::find(1)->questions;
-
-
-        return (json_encode($questions));
-
-        // Get answers for a question
+        return (json_encode($quizQuestionsAnswers));
         
     }
 }
