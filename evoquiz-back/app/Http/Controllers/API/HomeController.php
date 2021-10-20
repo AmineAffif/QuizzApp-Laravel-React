@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function allQuiz()
     {
-        // Get all quiz basic info
+        // Get all quiz list, basic info
         $quiz = Quiz::all();
         return (json_encode($quiz));
     }
