@@ -28,7 +28,13 @@ const QuizResult = () => {
     <div>
       <h2>Titre du quiz :</h2>
       <h3>Quiz Results for Quiz {score?.quiz.title}</h3>
-      <p>Votre score : { score?.score.score } / { score?.quiz?.amount_question }</p>
+      {score?.score.score ? (
+        <p>
+          Votre score : {score?.score.score} / {score?.quiz?.amount_question}
+        </p>
+      ) : (
+        <p>Votre score : aucun</p>
+      )}
     </div>
   );
 };
