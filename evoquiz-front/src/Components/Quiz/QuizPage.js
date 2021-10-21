@@ -31,24 +31,22 @@ const QuizPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log(score + " = score");
-    // Go next question
-    if (currentQuestion < countQuestions - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
+    
+    if (currentQuestion+1 < countQuestions) {
+      // Go next question
+      setCurrentQuestion(prevCurrentQuestion => prevCurrentQuestion + 1);
+    } else if ((currentQuestion+1 == countQuestions) && (countQuestions != 1)) {
       // Check if win rate >= 60%
       if ((score * 100) / countQuestions >= 60) {
         alert("VICTORY");
+        history.replace("/result/" + id, score);
         // Axios send Victory(true) to server to save in DB
       } else {
-        if (currentQuestion >= countQuestions) {
+        if (currentQuestion+1 == countQuestions){
           alert("Loose");
+          history.replace("/result/" + id, score)
           // Axios send Victory(false) to server to save in DB
         }
-      }
-      console.log("fin");
-      if (currentQuestion > countQuestions) {
-        history.replace("/result/" + id, score);
       }
     }
   }, [score, trigger]);
@@ -57,9 +55,14 @@ const QuizPage = () => {
     const rightAnswer = answer?.right_answer;
     // Right answer clicked ?
     if (rightAnswer == 1) {
-      setScore(score + 1);
+      if (currentQuestion+1 > countQuestions) {
+        setScore(prevScore => prevScore + 1);
+        history.replace("/result/" + id, score);
+      }else{
+        setScore(prevScore => prevScore + 1);
+      }
     } else {
-        setTrigger(trigger+1)
+        setTrigger(prevTrigger => prevTrigger + 1)
     }
   };
 
@@ -67,7 +70,8 @@ const QuizPage = () => {
     <div className="question_wrapper">
       <h3 className="question_title">{quiz?.title}</h3>
       score state : {score} <br />
-      current Q : {currentQuestion + 1}
+      current Q : {currentQuestion}<br />
+      count Q : {countQuestions}
       <div className="question">
         {/* Quiz Question */}
         <p className="question_text">
