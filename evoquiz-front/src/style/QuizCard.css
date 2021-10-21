@@ -6,6 +6,7 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    flex-direction: column;
     margin: 40px 0;
     filter: drop-shadow(0 0 0.55rem rgba(138, 138, 138, .3));
 }
@@ -18,6 +19,7 @@
     justify-content: end;
     align-items: center;
     flex-direction: row;
+    margin-top: 30px;
 }
 .btn_wrapper p {
     margin: 0;

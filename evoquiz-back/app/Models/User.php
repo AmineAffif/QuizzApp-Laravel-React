@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     public function scores()
     {
-        return $this->hasMany(Score::class, "user_id", "id");
+        return $this->hasMany(Score::class, "user_id", "auth0_id");
     }
 
     /**
@@ -26,6 +26,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'auth0_id',
         'username',
         'email',
     ];
