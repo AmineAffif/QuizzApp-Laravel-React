@@ -21,7 +21,7 @@ class AnswerTableSeeder extends Seeder
             4 => "Pfizer"
         );
 
-        for ($question = 1; $question <= 10; $question++) {
+        for ($question = 1; $question <= 40; $question++) {
             for ($answer = 1; $answer <= 4; $answer++) {
                 if ($answer == 4) {
                     DB::table("answers")->insert([
@@ -29,12 +29,14 @@ class AnswerTableSeeder extends Seeder
                         "content" => $answers[4],
                         "right_answer" => true,
                     ]);
+                }else {
+                    DB::table("answers")->insert([
+                        "question_id" => $question,
+                        "content" => $answers[$answer],
+                        "right_answer" => false,
+                    ]);
                 }
-                DB::table("answers")->insert([
-                    "question_id" => $question,
-                    "content" => $answers[$answer],
-                    "right_answer" => false,
-                ]);
+                
             }
         }
     }
