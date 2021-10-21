@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\HomeController;
 use App\Http\Controllers\API\QuizController;
+use App\Http\Controllers\API\ScoreController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -12,4 +13,6 @@ Route::post('/quiz/{id}', [QuizController::class, "quiz"]);
 
 Route::post('/sendUser', [UserController::class, "store"]);
 
-Route::post('/sendUserScore', [UserController::class, "storeScore"]);
+Route::post('/sendUserScore', [ScoreController::class, "storeScore"]);
+
+Route::post('/getQuizScore', [ScoreController::class, "getQuizScore"]);

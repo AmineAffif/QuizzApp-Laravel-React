@@ -20,6 +20,7 @@ class CreateScoresTable extends Migration
             $table->integer("quiz_id");
             $table->foreign("quiz_id")->references('id')->on('quizzes')->onDelete('cascade');
             $table->boolean("victory");
+            $table->string("score");
             $table->timestamps();
         });
     }

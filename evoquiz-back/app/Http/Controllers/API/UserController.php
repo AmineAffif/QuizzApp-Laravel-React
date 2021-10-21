@@ -27,19 +27,8 @@ class UserController extends Controller
 
         return ($request);
     }
-    public function storeScore(Request $request)
-    {
 
-            $user = User::where('auth0_id', '=', $request->user_id)->first();
 
-            $score = new Score;
-
-            $score->user_id = $user->auth0_id;
-            $score->quiz_id = $request->quiz_id;
-            $score->victory = $request->victory;
-            
-            $score->save();
-        
-        return json_encode($score);
-    }
+    
+    
 }
