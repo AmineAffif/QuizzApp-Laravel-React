@@ -32,14 +32,10 @@ const QuizPage = () => {
         console.log(erreur);
       });
 
-    // get user infos here
-    console.log("user id : ", user?.sub);
-    console.log("user email : ", user?.email);
-
     // Send User infos to DB
     RequestAPI("POST", "sendUser", {
       user_id: user?.sub,
-      user_mail: user?.email
+      user_mail: user?.email,
     })
       .then(function (reponse) {
         console.log(reponse.data);
@@ -59,11 +55,35 @@ const QuizPage = () => {
         alert("VICTORY");
         history.replace("/result/" + id, score);
         // Axios send Victory(true) to server to save in DB
+        RequestAPI("POST", "sendUserScore", {
+          user_id: user?.sub,
+          victory: true,
+          user_score: score,
+          quiz_id: id,
+        })
+          .then(function (reponse) {
+            console.log(reponse.data);
+          })
+          .catch(function (erreur) {
+            console.log(erreur);
+          });
       } else {
         if (currentQuestion + 1 == countQuestions) {
           alert("Loose");
           history.replace("/result/" + id, score);
           // Axios send Victory(false) to server to save in DB
+          RequestAPI("POST", "sendUserScore", {
+            user_id: user?.sub,
+            victory: false,
+            user_score: score,
+            quiz_id: id,
+          })
+            .then(function (reponse) {
+              console.log(reponse.data);
+            })
+            .catch(function (erreur) {
+              console.log(erreur);
+            });
         }
       }
     }

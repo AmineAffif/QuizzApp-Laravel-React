@@ -11,3 +11,5 @@ Route::post('/allQuiz', [HomeController::class, "allQuiz"]);
 Route::post('/quiz/{id}', [QuizController::class, "quiz"]);
 
 Route::post('/sendUser', [UserController::class, "store"]);
+
+Route::post('/sendUserScore', [UserController::class, "storeScore"]);
