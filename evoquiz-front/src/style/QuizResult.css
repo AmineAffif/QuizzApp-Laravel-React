@@ -1,0 +1,39 @@
+.results_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 80vh;
+    padding: 50px 15vw;
+}
+
+.quiz_title_page {
+    margin-bottom: 50px;
+}
+
+.stars {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.starSvg {
+    width: 20px;
+    margin: 3px;
+}
+
+.last_score_wrapper {
+    margin-top: 25px;
+}
+.max_score_wrapper p {
+    font-weight: bold;
+}
+
+.quiz_victory {
+    margin-bottom: 40px;
+    background-color: aliceblue;
+    padding: 15px 30px;
+    border-radius: 50px;
+    filter: drop-shadow(0 2mm 4mm rgba(0, 0, 0, .09));
+}

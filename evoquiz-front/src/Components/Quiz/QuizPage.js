@@ -60,6 +60,7 @@ const QuizPage = () => {
           victory: true,
           user_score: score,
           quiz_id: id,
+          quiz_title: quiz?.title,
         })
           .then(function (reponse) {
             console.log(reponse.data);
@@ -77,6 +78,7 @@ const QuizPage = () => {
             victory: false,
             user_score: score,
             quiz_id: id,
+            quiz_title: quiz?.title,
           })
             .then(function (reponse) {
               console.log(reponse.data);
@@ -87,7 +89,7 @@ const QuizPage = () => {
         }
       }
     }
-  }, [score, trigger]);
+  }, [score, trigger, quiz]);
 
   const handleAnswerClick = (answer) => {
     const rightAnswer = answer?.right_answer;

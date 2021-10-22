@@ -19,6 +19,7 @@ class Score extends Model
         'quiz_id',
         'score',
         'victory',
+        'quiz_title',
     ];
 
     public function question()
