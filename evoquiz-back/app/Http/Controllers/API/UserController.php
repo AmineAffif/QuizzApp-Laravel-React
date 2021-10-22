@@ -28,6 +28,16 @@ class UserController extends Controller
         return ($request);
     }
 
+    public function getUserRole(Request $request)
+    {
+        $user = new User;
+
+        $userRole = $user
+        ->select("role")
+        ->where('auth0_id', $request->user_id)->first();
+
+        return (json_encode($userRole));
+    }
 
     
     

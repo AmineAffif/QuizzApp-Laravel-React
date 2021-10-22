@@ -29,6 +29,7 @@ class User extends Authenticatable
         'auth0_id',
         'username',
         'email',
+        'role',
     ];
 
     /**

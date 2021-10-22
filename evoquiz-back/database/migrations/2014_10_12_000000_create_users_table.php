@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('auth0_id')->unique();
             $table->string('username')->default("NULL");
             $table->string('email')->unique()->default(null);
+            $table->string('role')->default("user");
             $table->rememberToken();
             $table->timestamps();
         });

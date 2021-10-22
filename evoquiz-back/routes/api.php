@@ -17,3 +17,5 @@ Route::post('/sendUserScore', [ScoreController::class, "storeScore"]);
 
 Route::post('/getQuizScore', [ScoreController::class, "getQuizScore"]);
 Route::post('/getAllQuizScore', [ScoreController::class, "getAllQuizScore"]);
+
+Route::post('/getUserRole', [UserController::class, "getUserRole"]);

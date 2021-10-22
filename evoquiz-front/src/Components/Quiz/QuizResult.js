@@ -14,6 +14,19 @@ const QuizResult = () => {
   const [score, setScore] = useState();
 
   useEffect(() => {
+    // Send User infos to DB
+    RequestAPI("POST", "sendUser", {
+      user_id: user?.sub,
+      user_mail: user?.email,
+    })
+      .then(function (reponse) {
+        console.log(reponse.data);
+      })
+      .catch(function (erreur) {
+        console.log(erreur);
+      });
+
+      
     RequestAPI("POST", "getQuizScore", {
       user_id: user?.sub,
       quiz_id: id,

@@ -27,6 +27,19 @@
     color: #d10000 !important;
 }
 
+.create_quiz {
+    margin-left: 5px;
+}
+.create_quiz:hover {
+    background-color: #e7a600;
+    color: #105200;
+}
+
+#add_icon {
+    width: 14px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+}
 
 
 
