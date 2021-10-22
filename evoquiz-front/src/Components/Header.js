@@ -16,7 +16,8 @@ const Header = () => {
       user_id: user?.sub,
     })
       .then(function (reponse) {
-        setUserRole(reponse.data.role);
+        setUserRole(reponse.data?.role);
+        console.log(reponse.data?.role);
       })
       .catch(function (erreur) {
         console.log(erreur);

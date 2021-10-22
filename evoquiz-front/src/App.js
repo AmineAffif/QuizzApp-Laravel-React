@@ -29,7 +29,8 @@ function App() {
       user_id: user?.sub,
     })
       .then(function (reponse) {
-        setUserRole(reponse.data.role);
+        setUserRole(reponse.data?.role);
+        console.log(reponse.data?.role);
       })
       .catch(function (erreur) {
         console.log(erreur);
@@ -55,13 +56,9 @@ function App() {
             <Route exact strict path="/result/:id">
               <QuizResult />
             </Route>
-            {userRole == "admin" ? (
-              <Route exact strict path="/createQuiz">
-                <CreateQuiz />
-              </Route>
-            ) : (
-              ""
-            )}
+            <Route exact strict path="/createQuiz">
+              <CreateQuiz />
+            </Route>
           </Switch>
         </Router>
       </Auth0ProviderWithHistory>
