@@ -9,6 +9,12 @@ const CreateQuiz = () => {
 
   const [userRole, setUserRole] = useState();
 
+  const [quizTitle, setQuizTitle] = useState();
+
+  const handletitleForm = (e) => {
+    setQuizTitle(e.target.value);
+  };
+
   useEffect(() => {
     RequestAPI("POST", "getUserRole", {
       user_id: user?.sub,
@@ -24,7 +30,19 @@ const CreateQuiz = () => {
 
   return (
     <div>
-      {userRole == "admin" && <div>let's create</div>}
+      {userRole == "admin" && (
+        <div>
+          <div className="form-group container">
+            <input
+              type="text"
+              className="form-control"
+              aria-describedby="title"
+              placeholder="Titre du quiz"
+              onChange={handletitleForm}
+            />
+          </div>
+        </div>
+      )}
       {userRole != "admin" && userRole != null && (
         <div
           style={{
