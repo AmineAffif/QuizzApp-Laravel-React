@@ -25,5 +25,6 @@ class Quiz extends Model
     protected $fillable = [
         'title',
         'amount_question',
+        'difficulty',
     ];
 }

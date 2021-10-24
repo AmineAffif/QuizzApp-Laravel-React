@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
 import "../../style/QuizCard.css";
+import LightSkullPath from "../../Assets/img/lightSkull.svg"
+import DarkSkullPath from "../../Assets/img/darkSkull.svg"
 
 const QuizCard = (data) => {
   const history = useHistory();
@@ -12,6 +14,48 @@ const QuizCard = (data) => {
       {data.data.title ? (
         <>
           <h3>{data.data.title}</h3>
+
+          {/* Difficulty level */}
+      <div className="difficulty_wrapper">
+        {data.data.difficulty ? (
+          <p>
+            Difficulté : {data.data.difficulty}
+          </p>
+        ) : (
+          <p>Difficulté : chargement...</p>
+        )}
+        {data.data.difficulty == "facile" ? (
+          <div className="skulls">
+            <img className="skullImg dark_skull" src={DarkSkullPath} />
+            <img className="skullImg light_skull" src={LightSkullPath} />
+            <img className="skullImg light_skull" src={LightSkullPath} />
+          </div>
+        ) : (
+          ""
+        )}
+        {data.data.difficulty == "normal" ? (
+          <div className="skulls">
+            <img className="skullImg dark_skull" src={DarkSkullPath} />
+            <img className="skullImg dark_skull" src={DarkSkullPath} />
+            <img className="skullImg light_skull" src={LightSkullPath} />
+          </div>
+        ) : (
+          ""
+        )}
+        {data.data.difficulty == "impossible" ? (
+          <div className="skulls">
+            <img className="skullImg dark_skull" src={DarkSkullPath} />
+            <img className="skullImg dark_skull" src={DarkSkullPath} />
+            <img className="skullImg dark_skull" src={DarkSkullPath} />
+          </div>
+        ) : (
+          ""
+        )}
+        
+      </div>
+
+
+
           <div className="btn_wrapper">
             <button
               className="btn btn-link text-dark m-0 btn-block text-decoration-none results_btn"

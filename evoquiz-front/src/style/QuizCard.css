@@ -38,3 +38,23 @@
 .results_btn:hover {
     color: #3ea801 !important;
 }
+
+.light_skull {
+    opacity: .8;
+}
+
+.dark_skull {
+    opacity: .9;
+}
+
+
+.skulls {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.skullImg {
+    width: 25px;
+    margin: 3px;
+}
