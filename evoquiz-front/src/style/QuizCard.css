@@ -1,14 +1,15 @@
 .quiz_card {
     background-color: rgb(255, 255, 255);
     padding: 20px 50px;
-    width: 100vw;
+    width: 80vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     margin: 40px 0;
     filter: drop-shadow(0 0 0.55rem rgba(138, 138, 138, .3));
+    border-radius: 25px;
 }
 .quiz_card h3 {
     width: auto;
@@ -29,10 +30,19 @@
 }
 
 .play_btn {
-    background-color: #81e0f7;
+    background-color: #81f7e3;
 }
 .play_btn:hover {
-    background-color: #68c4db;
+    background-color: #75ecd8;
+}
+
+
+.btn_wrapper button.resume_btn {
+    background-color: hsl(148, 88%, 74%);
+    margin: 0 15px;
+}
+.btn_wrapper .resume_btn:hover {
+    background-color: hsl(148, 69%, 66%);
 }
 
 .results_btn:hover {

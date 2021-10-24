@@ -19,6 +19,9 @@ const QuizPage = () => {
 
   const [trigger, setTrigger] = useState(0);
 
+  
+  
+
   useEffect(() => {
     RequestAPI("POST", "quiz/" + id, {})
       .then(function (reponse) {

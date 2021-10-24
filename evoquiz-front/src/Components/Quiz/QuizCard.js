@@ -4,55 +4,58 @@ import "../../style/QuizCard.css";
 import LightSkullPath from "../../Assets/img/lightSkull.svg"
 import DarkSkullPath from "../../Assets/img/darkSkull.svg"
 
-const QuizCard = (data) => {
+const QuizCard = (data, allQuizScores) => {
   const history = useHistory();
 
 
   return (
     <div className="quiz_card">
+      {
+        console.log("scores : " + JSON.stringify(allQuizScores))
+      }
       {/* Viewing from Homepage ? */}
       {data.data.title ? (
         <>
           <h3>{data.data.title}</h3>
-
+          {data.data.victory ? <p>Quiz gagné ✅</p> : ""}
           {/* Difficulty level */}
-      <div className="difficulty_wrapper">
-        {data.data.difficulty ? (
-          <p>
-            Difficulté : {data.data.difficulty}
-          </p>
-        ) : (
-          <p>Difficulté : chargement...</p>
-        )}
-        {data.data.difficulty == "facile" ? (
-          <div className="skulls">
-            <img className="skullImg dark_skull" src={DarkSkullPath} />
-            <img className="skullImg light_skull" src={LightSkullPath} />
-            <img className="skullImg light_skull" src={LightSkullPath} />
+          <div className="difficulty_wrapper">
+            {data.data.difficulty ? (
+              <p>
+                Difficulté : {data.data.difficulty}
+              </p>
+            ) : (
+              <p>Difficulté : chargement...</p>
+            )}
+            {data.data.difficulty == "facile" ? (
+              <div className="skulls">
+                <img className="skullImg dark_skull" src={DarkSkullPath} />
+                <img className="skullImg light_skull" src={LightSkullPath} />
+                <img className="skullImg light_skull" src={LightSkullPath} />
+              </div>
+            ) : (
+              ""
+            )}
+            {data.data.difficulty == "normal" ? (
+              <div className="skulls">
+                <img className="skullImg dark_skull" src={DarkSkullPath} />
+                <img className="skullImg dark_skull" src={DarkSkullPath} />
+                <img className="skullImg light_skull" src={LightSkullPath} />
+              </div>
+            ) : (
+              ""
+            )}
+            {data.data.difficulty == "impossible" ? (
+              <div className="skulls">
+                <img className="skullImg dark_skull" src={DarkSkullPath} />
+                <img className="skullImg dark_skull" src={DarkSkullPath} />
+                <img className="skullImg dark_skull" src={DarkSkullPath} />
+              </div>
+            ) : (
+              ""
+            )}
+
           </div>
-        ) : (
-          ""
-        )}
-        {data.data.difficulty == "normal" ? (
-          <div className="skulls">
-            <img className="skullImg dark_skull" src={DarkSkullPath} />
-            <img className="skullImg dark_skull" src={DarkSkullPath} />
-            <img className="skullImg light_skull" src={LightSkullPath} />
-          </div>
-        ) : (
-          ""
-        )}
-        {data.data.difficulty == "impossible" ? (
-          <div className="skulls">
-            <img className="skullImg dark_skull" src={DarkSkullPath} />
-            <img className="skullImg dark_skull" src={DarkSkullPath} />
-            <img className="skullImg dark_skull" src={DarkSkullPath} />
-          </div>
-        ) : (
-          ""
-        )}
-        
-      </div>
 
 
 

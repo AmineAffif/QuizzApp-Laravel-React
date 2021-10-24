@@ -14,12 +14,15 @@
 .question {
     margin-top: 35px;
 }
+.question_title {
+    padding: 0 30px;
+}
 
 .question_text {
     width: 100vw;
     background-color: #e9e9e9;
     text-align: center;
-    padding: 13px 0 15px 0;
+    padding: 13px 20px 15px 20px;
 }
 
 .question_num{

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import QuizCard from "./Quiz/QuizCard";
 import { useAuth0 } from "@auth0/auth0-react";
 import RequestAPI from "../Utils/Api";
+import "../style/Homepage.css";
 
 
 const Homepage = () => {
@@ -35,7 +36,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="homepage_wrapper">
       
       {!isLoading &&
         user &&

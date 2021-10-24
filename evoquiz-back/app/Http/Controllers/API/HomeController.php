@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Quiz;
+use App\Models\Score;
 
 
 class HomeController extends Controller
@@ -12,6 +13,8 @@ class HomeController extends Controller
     {
         // Get all quiz list, basic info
         $quiz = Quiz::all();
+
+
         return (json_encode($quiz));
     }
 }
