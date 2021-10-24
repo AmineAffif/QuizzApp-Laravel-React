@@ -38,7 +38,7 @@
 ## Bonus
 - Some nice to haves, when there is time to spare.
 
- [ ] A quizz can have a dificulty level
+ [X] A quizz can have a dificulty level
 
  [X] Add admin role
 
