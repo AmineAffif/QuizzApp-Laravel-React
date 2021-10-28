@@ -15,9 +15,13 @@ Notion
 
 ![alt text](https://i.ibb.co/BZBV92m/pseudo-user-flow.jpg "Logo Title Text 1")
 
+🌈☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️
+# Try the App just down here 👇
+
+https://evoquiz.herokuapp.com/
 
 
-# How to run the project 
+# How to run the project locally
 ## Get the project
 - clone this repo
 ```
