@@ -1,3 +1,9 @@
+🌈☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️
+# Try the App just down here 👇
+
+https://evoquiz.herokuapp.com/
+
+
 # How the project was planned
 
 ### Organized to do list
@@ -14,11 +20,6 @@ Notion
 # Mobile version preview of the project
 
 ![alt text](https://i.ibb.co/BZBV92m/pseudo-user-flow.jpg "Logo Title Text 1")
-
-🌈☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️
-# Try the App just down here 👇
-
-https://evoquiz.herokuapp.com/
 
 
 # How to run the project locally
