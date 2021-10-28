@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const LOCALURL = "http://127.0.0.1:8000/";
-const DEVURL = "http://127.0.0.1:8000/";
-const PRODURL = "http://127.0.0.1:8000/";
+const LOCALURL = "https://morning-ravine-71079.herokuapp.com/";
+const DEVURL = "https://morning-ravine-71079.herokuapp.com/";
+const PRODURL = "https://morning-ravine-71079.herokuapp.com/";
 export const URL = LOCALURL;
 
 export const axiosInstance = axios.create({
