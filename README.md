@@ -1,109 +1,70 @@
-# How the project was planned
+# Getting Started with Create React App
 
-### Organized to do list
-Notion 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-👇 https://tourmaline-elk-2d8.notion.site/9f15fd605e554020a31205f4611e7228?v=11f4abe70a2643ea9dae39ad30c2de6d 👇 
-![alt text](https://i.ibb.co/BchCRTd/notion-todo.jpg "Logo Title Text 1")
+## Available Scripts
 
-### Database Schema
+In the project directory, you can run:
 
-![alt text](https://i.ibb.co/M2QZGxH/schema-bdd.jpg "Logo Title Text 1")
+### `yarn start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-# Mobile version preview of the project
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-![alt text](https://i.ibb.co/BZBV92m/pseudo-user-flow.jpg "Logo Title Text 1")
+### `yarn test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn build`
 
-# How to run the project 
-## Get the project
-- clone this repo
-```
-git clone https://github.com/AmineAffif/study_test.git
-```
-## Setting up Backend
-- Place yourself inside ```study_test/evoquiz-back```
-- Install dependencies
-```
-composer install
-```
-- Make sure to create manualy a mysql database named "evoquiz" 
-- Run tables migrations
-```
-php artisan migrate
-```
-- Run the seeders to populate randomly the database
-```
-php artisan db:seed
-```
-- Run the backend server. (Check the port with the one which is the next part for the front end in ```study_test/evoquiz-front/src/Utils/Api.js```) Because our frontend Api call need the good backend port.
-```
-php artisan serve
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Setting up Frontend
-- Place yourself inside ```study_test/evoquiz-front```
-- Install dependencies
-```
-npm i
-```
-- Start the frontend server
-```
-npm start
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn eject`
 
-## Guidelines
-- Fork this repository.
-- You can add any framework, library or plugin you'd like.
-- Make sure the application works out-of-the box once you're done.
-- Push changes to your git fork.
-- Add a short description on how to run your program for anyone who would like to test it.
-- Check the finished features in the Assignment and Bonus section by putting an 'X' ([X]) in between the brackets.
-- Quality over quantity, better half of the features 100% done, than 100% of the features half-done.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Assignment :
-  - You are asked to build a simple Quizz App
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### User
- [<span style="color:orange">X</span>] A user can log in with a valid username and password through a login screen
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
- [<span style="color:orange">X</span>] A user can see a collection of quizzes
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
- [<span style="color:orange">X</span>] A user can start a quizz
+## Learn More
 
- [<span style="color:orange">X</span>] A user can answer 3 questions on a quizz
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
- [<span style="color:orange">X</span>] A user can see the scores of his quizzes
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Quizz
- [<span style="color:orange">X</span>] A quizz has a Title
+### Analyzing the Bundle Size
 
- [<span style="color:orange">X</span>] A quizz has a maximum of 3 questions
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
- [<span style="color:orange">X</span>] A quizz is considered passed if +60% of questions are answered correctly
+### Making a Progressive Web App
 
-### Question
- [<span style="color:orange">X</span>] A question has a maximum of 4 answers
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
- [<span style="color:orange">X</span>] A question has only 1 possible correct answer
+### Advanced Configuration
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## Bonus
-- Some nice to haves, when there is time to spare.
+### Deployment
 
- [<span style="color:orange">X</span>] A quizz can have a dificulty level
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
- [<span style="color:orange">X</span>] Add admin role
+### `yarn build` fails to minify
 
- [ ] A user with admin role can create and edit quizzes
-
- [ ] A user can come back to a started quizz at the question he stopped
-
- [<span style="color:orange">X</span>] Add or improve a feature of your own choice
- (See last game score and Max score)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
