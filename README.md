@@ -10,9 +10,6 @@ https://evoquiz.herokuapp.com/
 ### Organized to do list
 Notion 
 
-👇 https://tourmaline-elk-2d8.notion.site/9f15fd605e554020a31205f4611e7228?v=11f4abe70a2643ea9dae39ad30c2de6d 👇 
-![alt text](https://i.ibb.co/BchCRTd/notion-todo.jpg "Logo Title Text 1")
-
 ### Database Schema
 
 ![alt text](https://i.ibb.co/M2QZGxH/schema-bdd.jpg "Logo Title Text 1")
